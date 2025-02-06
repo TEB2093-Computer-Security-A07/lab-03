@@ -1,5 +1,5 @@
 <p align="center" width="100%">
-    <img src="./assets/utp logo.png" height="100" alt="UTP logo" />
+    <img src="./asset/utp logo.png" height="100" alt="UTP logo" />
 </p>
 
 
