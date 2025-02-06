@@ -15,6 +15,7 @@
 ### Task 1
 #### Monoalphabetic substitution cipher
 ###
+```html
 #include<iostream>
 #include<string.h>
 using namespace std;
@@ -76,4 +77,5 @@ int main() {
       cout << "Decrypted message: " << msg;
    }
 }
+```
 
