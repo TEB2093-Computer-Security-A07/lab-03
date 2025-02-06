@@ -14,7 +14,7 @@
 
 ### Task 1
 #### Monoalphabetic substitution cipher
-###
+### Code:
 ```html
 #include<iostream>
 #include<string.h>
@@ -78,4 +78,7 @@ int main() {
    }
 }
 ```
+### Encryption:
+(./asset/encrypt_mono.png)
+### Decryption:
 
