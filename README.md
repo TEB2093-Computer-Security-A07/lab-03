@@ -12,29 +12,33 @@
 - Ahmad Anas Bin Azhar (22005996)
 - Muhammad Hanis Afifi Bin Azmi (22001602)
 
-### Task 1
-#### Monoalphabetic substitution cipher
-### Code:
-```html
-#include<iostream>
-#include<string.h>
+## Task 1
+
+### Monoalphabetic substitution cipher
+
+**Code:**
+```cpp
+#include <iostream>
+#include <string.h>
+
 using namespace std;
+
 int main() {
-   cout<<"Enter the message:\n";
+   cout << "Enter the message:\n";
    char msg[100];
-   cin.getline(msg,100); //take the message as input
-   int i, j, length,choice,key;
+   cin.getline(msg,100); // take the message as input
+   int i, j, length, choice, key;
    cout << "Enter key(0-25): ";
-   cin >> key; //take the key as input
+   cin >> key; // take the key as input
    length = strlen(msg);
-   cout<<"Enter your choice \n1. Encryption \n2. Decryption \n";
-   cin>>choice;
-   if (choice==1) //for encryption
+   cout << "Enter your choice \n1. Encryption \n2. Decryption \n";
+   cin >> choice;
+   if (choice ==1) // for encryption
    {
       char ch;
       for(int i = 0; msg[i] != '\0'; ++i) {
          ch = msg[i];
-         //encrypt for lowercase letter
+         // encrypt for lowercase letter
          if (ch >= 'a' && ch <= 'z'){
             ch = ch + key;
             if (ch > 'z') {
@@ -42,7 +46,7 @@ int main() {
             }  
             msg[i] = ch;
          }
-         //encrypt for uppercase letter
+         // encrypt for uppercase letter
          else if (ch >= 'A' && ch <= 'Z'){
             ch = ch + key;
             if (ch > 'Z'){
@@ -53,11 +57,11 @@ int main() {
       }
       printf("Encrypted message: %s", msg);
    }
-   else if (choice == 2) { //for decryption
+   else if (choice == 2) { // for decryption
       char ch;
       for(int i = 0; msg[i] != '\0'; ++i) {
          ch = msg[i];
-         //decrypt for lowercase letter
+         // decrypt for lowercase letter
          if(ch >= 'a' && ch <= 'z') {
             ch = ch - key;
             if(ch < 'a'){
@@ -65,7 +69,7 @@ int main() {
             }
             msg[i] = ch;
          }
-         //decrypt for uppercase letter
+         // decrypt for uppercase letter
          else if(ch >= 'A' && ch <= 'Z') {
             ch = ch - key;
             if(ch < 'A') {
@@ -78,16 +82,23 @@ int main() {
    }
 }
 ```
-### Encryption:
+
+**Encryption:**
+
 ![](./asset/encrypt_mono.png)
-### Decryption:
+
+**Decryption:**
+
 ![](./asset/decrypt_mono.png)
 
 
-### Task 2
-#### Playfair Cipher
-### Code:
-```html
+## Task 2
+
+### Playfair Cipher
+
+**Code:**
+
+```cpp
 #include <iostream>
 #include <string>
  
@@ -200,17 +211,23 @@ int main( int argc, char* argv[] )
 }
 ```
 
-### Encryption:
+**Encryption:**
+
 ![](./asset/encrypt_playfair.png)
-### Decryption:
+
+**Decryption:**
+
 ![](./asset/decrypt_playfair.png)
 
-### Task 3
-#### Vigenere Cipher 
-### Code:
-```html
-#include<iostream>
-#include<string.h>
+## Task 3
+
+### Vigenere Cipher
+
+**Code:**
+
+```cpp
+#include <iostream>
+#include <string.h>
  
 using namespace std;
  
@@ -221,7 +238,7 @@ int main(){
  
     char newKey[msgLen], encryptedMsg[msgLen], decryptedMsg[msgLen];
  
-    //generating new key
+    // generating new key
     for(i = 0, j = 0; i < msgLen; ++i, ++j){
         if(j == keyLen)
             j = 0;
@@ -231,74 +248,77 @@ int main(){
  
     newKey[i] = '\0';
  
-    //encryption
+    // encryption
     for(i = 0; i < msgLen; ++i)
         encryptedMsg[i] = ((msg[i] + newKey[i]) % 26) + 'A';
  
     encryptedMsg[i] = '\0';
  
-    //decryption
+    // decryption
     for(i = 0; i < msgLen; ++i)
         decryptedMsg[i] = (((encryptedMsg[i] - newKey[i]) + 26) % 26) + 'A';
  
     decryptedMsg[i] = '\0';
  
-    cout<<"Original Message: "<<msg;
-    cout<<"\nKey: "<<key;
-    cout<<"\nNew Generated Key: "<<newKey;
-    cout<<"\nEncrypted Message: "<<encryptedMsg;
-    cout<<"\nDecrypted Message: "<<decryptedMsg;
+    cout << "Original Message: " << msg;
+    cout << "\nKey: " << key;
+    cout << "\nNew Generated Key: " << newKey;
+    cout << "\nEncrypted Message: " << encryptedMsg;
+    cout << "\nDecrypted Message: " << decryptedMsg;
  
 	return 0;
 }
 ```
 
-### Encryption:
+**Encryption:**
+
 ![](./asset/vig.png)
 
-### Task 4
-#### Rail Fence Cipher  
-### Code:
-```html
-#include<bits/stdc++.h>
+## Task 4
+
+### Rail Fence Cipher
+
+**Code:**
+
+```cpp
+#include <bits/stdc++.h>
+
 using namespace std;
 
 int main(){
-    int t,n,m,i,j,k,sum=0;
+    int t, n, m, i, j, k, sum=0;
     string s;
-    cout<<"Enter the message"<<'\n';
-    cin>>s;
-    cout<<"Enter key"<<'\n';
-    cin>>n;
+    cout << "Enter the message" << '\n';
+    cin >> s;
+    cout << "Enter key" << '\n';
+    cin >> n;
     vector<vector<char>> a(n,vector<char>(s.size(),' '));
-    j=0;
-    int flag=0;
-    for(i=0;i<s.size();i++){
+    j = 0;
+    int flag = 0;
+    for(i = 0; i < s.size(); i++){
         a[j][i] = s[i];
-         if(j==n-1){
-            flag=1;
+         if(j == n - 1){
+            flag = 1;
         }
-        else if(j==0)
-            flag=0;
+        else if(j == 0)
+            flag = 0;
 
-        if(flag==0){
+        if(flag == 0){
             j++;
         }
         else j--;
     }
-    for(i=0;i<n;i++){
-        for(j=0;j<s.size();j++){
-            if(a[i][j]!=' ')
-                cout<<a[i][j];
+    for(i = 0; i < n; i++){
+        for(j = 0; j < s.size(); j++){
+            if(a[i][j] != ' ')
+                cout << a[i][j];
         }
     }
-    cout<<'\n';   
+    cout << '\n';   
     return 0;
 }
 ```
 
-### Encryption:
+**Encryption:**
+
 ![](./asset/rail.png)
-
-
-
