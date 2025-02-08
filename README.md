@@ -91,6 +91,12 @@ int main() {
 
 ![](./asset/decrypt_mono.png)
 
+**Explanation:**
+
+This C++ program implements a Caesar Cipher, a type of monoalphabetic substitution cipher, to encrypt and decrypt messages using a shift key. The program first prompts the user to enter a message (msg) and a shift key (key) between 0 and 25, then asks whether they want to encrypt or decrypt the message.
+
+In encryption, each letter is shifted forward by the key value; if it exceeds 'z' (for lowercase) or 'Z' (for uppercase), it wraps around to the beginning of the alphabet, while non-alphabetic characters remain unchanged. Decryption reverses this process by shifting characters backward, ensuring proper wrap-around behavior. The encrypted or decrypted message is then displayed. For example, with a plaintext "ilovecomputerscience" and key 3, the encrypted text becomes "loryhfrpsxwhuvflhqfh", which when decrypted returns to the original text. Though simple, this cipher introduces basic cryptographic concepts but is easily breakable with frequency analysis
+
 
 ## Task 2
 
@@ -219,6 +225,10 @@ int main( int argc, char* argv[] )
 
 ![](./asset/decrypt_playfair.png)
 
+**Explanation:**
+
+Playfair Cipher, which encrypts text using pairs of letters based on a 5x5 grid generated from a keyword. The user chooses to encrypt (E) or decrypt (D), enters a key, selects whether to treat 'I' and 'J' as the same, and provides the message. The program removes duplicates from the key and fills the grid with unique letters (excluding 'Q'). During encryption, letters are paired, and specific Playfair rules shift them within the grid. Decryption reverses these shifts. For example, encrypting "ilovecomputerscience" with key "monarchy" gives "GS YO CY NO KW ZJ AT DF BR YC", which can be decrypted back. This cipher improves security over simple letter shifts.
+
 ## Task 3
 
 ### Vigenere Cipher
@@ -274,6 +284,10 @@ int main(){
 
 ![](./asset/vig.png)
 
+**Explanation:**
+
+Vigenere Cipher, an encryption method using a repeating key sequence. The user inputs a message and a key, and the program generates a new key that matches the message length by repeating the original key. Each letter in the message is encrypted by shifting it based on the corresponding letter in the key, and decryption reverses this process. For example, using the key "LEMON" on "IloveComputerScience", the generated key becomes "LEMONLEMONLEMONLEMON", producing an encrypted message "TVGPXNYEJNKOJGVZOFWX" and a decrypted message "IRUBKCU SVAZKXSIQKTIK", though there might be a case mismatch. The Vigenère Cipher is more secure than simple substitution ciphers as it avoids direct frequency analysis.
+
 ## Task 4
 
 ### Rail Fence Cipher
@@ -322,3 +336,7 @@ int main(){
 **Encryption:**
 
 ![](./asset/rail.png)
+
+**Explanation:**
+
+Rail Fence Cipher, a transposition cipher that rearranges message characters based on a given key (number of rails). The user inputs a message and a key, and the program writes the message in a zigzag pattern across the specified number of rails. It then reads the characters row-wise to form the encrypted message. For example, with the message "ilovecomputerscience" and a key of 3, the output is "ieprelvcmuesineootcc", showing how characters are reordered. The Rail Fence Cipher is simple but effective for basic encryption
